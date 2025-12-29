@@ -7,9 +7,9 @@ export async function uploadBlob(
   options?: BlobOptions
 ) {
   return await put(filename, content, {
-    access: options?.access || 'public',
-    contentType: options?.contentType,
-    addRandomSuffix: options?.addRandomSuffix,
+    access: "public",
+    ...(options?.contentType && { contentType: options.contentType }),
+    ...(options?.addRandomSuffix !== undefined && { addRandomSuffix: options.addRandomSuffix }),
   });
 }
 

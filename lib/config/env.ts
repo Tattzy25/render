@@ -1,11 +1,15 @@
 export const getEnvVar = (key: string, required = true): string => {
   const value = process.env[key];
   
-  if (required && !value) {
+  if (required && (!value || value.trim() === '')) {
     throw new Error(`${key} environment variable is required`);
   }
   
-  return value || '';
+  if (!required) {
+    return value || '';
+  }
+  
+  return value as string;
 };
 
 export const DATABASE_URL = getEnvVar('DATABASE_URL');

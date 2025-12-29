@@ -11,7 +11,7 @@ async function runSQLFile(filePath: string) {
   
   for (const statement of statements) {
     try {
-      await sql(statement);
+      await sql.query(statement);
       console.log(`✓ Executed: ${statement.substring(0, 50)}...`);
     } catch (error) {
       console.error(`✗ Error: ${error}`);

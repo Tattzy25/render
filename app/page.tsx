@@ -1,7 +1,10 @@
 
+import { ScrollerHorizontalDemo } from '@/components/horizontal-scroll';
+
 export default async function Home() {
   return (
     <div className="flex min-h-screen items-center justify-center p-4">
+      <ScrollerHorizontalDemo />
     </div>
   )
 }
